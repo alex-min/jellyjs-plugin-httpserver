@@ -1,0 +1,22 @@
+{
+  "name": "jellyjs-plugin-httpserver",
+  "version": "0.0.2",
+  "description": "Jelly.js httpserver Plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": "",
+  "keywords": [
+    "framework",
+    "web"
+  ],
+  "author": "alex-min",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~3.3.1"
+  },
+  "devDependancies":{
+    "jellyjs":"0.x.x"
+  }
+}
