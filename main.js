@@ -16,6 +16,7 @@ module.exports = {
     if (connected === false) {
       app.listen(params.port || 80);
     }
+    this.getLogger().info("Server listening on port " + (params.port || 80));
     connected = true;
     return cb();
   },
