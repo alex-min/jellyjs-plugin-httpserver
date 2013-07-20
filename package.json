@@ -11,6 +11,10 @@
     "framework",
     "web"
   ],
+  "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/alex-min/jellyjs-plugin-httpserver.git"
+  },
   "author": "alex-min",
   "license": "MIT",
   "dependencies": {
