@@ -1,7 +1,7 @@
 pluginDir = __dirname + '/../'
 toType = (obj) -> ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
 assert = require('chai').assert;
-
+request = require('request')
 
 try
   jy = require('jellyjs')
@@ -31,9 +31,12 @@ describe('#Plugin::httpserver', ->
           server = dt.getPluginInterface().getSharedObjectManager().getObject('httpserver', 'server')
           assert.equal(toType(server), 'object')
           assert.equal(server.constructor.name, 'SharedObject')
-          port = parseInt(Math.random() * 2000) + 1000
-          dt.getPluginInterface().oncall({}, {port:port}, (err) ->
-            cb(err)
+          port = parseInt(Math.random() * 2000) + 2000
+          dt.getPluginInterface().oncall({}, {pluginParameters:{httpserver:{port:port}}}, (err) ->
+            request("http://127.0.0.1:#{port}", (err, response, body) ->
+              console.log("Server is responding successfully on port #{port}")
+              cb(err)
+            )
           )
         catch e
           cb(e)

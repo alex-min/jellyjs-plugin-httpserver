@@ -13,10 +13,21 @@ module.exports = {
     return cb();
   },
   oncall: function(onj, params, cb) {
-    if (connected === false) {
-      app.listen(params.port || 80);
+    var _base, _base1, _ref, _ref1, _ref2;
+
+    if ((_ref = params.pluginParameters) == null) {
+      params.pluginParameters = {};
     }
-    this.getLogger().info("Server listening on port " + (params.port || 80));
+    if ((_ref1 = (_base = params.pluginParameters).httpserver) == null) {
+      _base.httpserver = {};
+    }
+    if ((_ref2 = (_base1 = params.pluginParameters.httpserver).port) == null) {
+      _base1.port = 80;
+    }
+    if (connected === false) {
+      app.listen(params.pluginParameters.httpserver.port);
+    }
+    this.getLogger().info("Server listening on port " + params.pluginParameters.httpserver.port);
     connected = true;
     return cb();
   },
