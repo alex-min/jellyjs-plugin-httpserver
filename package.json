@@ -1,6 +1,6 @@
 {
   "name": "jellyjs-plugin-httpserver",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Jelly.js httpserver Plugin",
   "main": "index.js",
   "scripts": {
